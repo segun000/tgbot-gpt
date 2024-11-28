@@ -8,4 +8,5 @@ https://youtu.be/-6ufFPvp6CY
 
 https://youtu.be/M7mt7C9mTJk
 
-ps original: https://github.com/vladilenm/tgbot-gpt-youtube
+
+original: https://github.com/vladilenm/tgbot-gpt-youtube
