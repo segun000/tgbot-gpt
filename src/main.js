@@ -7,7 +7,7 @@ import { openai } from './openai.js'
 import { removeFile } from './utils.js'
 import { initCommand, processTextToChat, INITIAL_SESSION } from './logic.js'
 
-console.log(config.get('Loading environment...','TEST_ENV'))
+console.log('Loading environment...',config.get('TEST_ENV'))
 const bot = new Telegraf(config.get('TELEGRAM_TOKEN'))
 
 console.log(config.get('Loading TELEGRAM_TOKEN...','TELEGRAM_TOKEN'))
