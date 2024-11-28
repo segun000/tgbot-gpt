@@ -10,3 +10,6 @@ destroy:
 	docker rmi 2573171e0124 -i
 	docker ps
 	docker images
+
+debug:
+	docker run -p 3000:3000 --name tgbot --rm tgbot
