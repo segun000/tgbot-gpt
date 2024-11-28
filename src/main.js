@@ -10,7 +10,7 @@ import { initCommand, processTextToChat, INITIAL_SESSION } from './logic.js'
 console.log('Loading environment...',config.get('TEST_ENV'))
 const bot = new Telegraf(config.get('TELEGRAM_TOKEN'))
 
-console.log(config.get('Loading TELEGRAM_TOKEN...','TELEGRAM_TOKEN'))
+console.log('Loading TELEGRAM_TOKEN...',config.get('TELEGRAM_TOKEN'))
 
 bot.use(session())
 
