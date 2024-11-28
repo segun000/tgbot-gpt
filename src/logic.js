@@ -20,7 +20,8 @@ export async function processTextToChat(ctx, content) {
       content: response.content,
     })
 
-    await ctx.reply(response.content)
+    try {await ctx.reply(response.content)
+        } catch {await ctx.reply(response)}
   } catch (e) {
     console.log('Error while proccesing text to gpt', e.message)
   }
