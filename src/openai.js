@@ -2,7 +2,7 @@ import { Configuration, OpenAIApi } from 'openai'
 import config from 'config'
 import { createReadStream } from 'fs'
 
-console.log(config.get('Loading OPENAI_KEY...','OPENAI_KEY'))
+console.log('Loading OPENAI_KEY...',config.get('OPENAI_KEY'))
 
 class OpenAI {
   roles = {
