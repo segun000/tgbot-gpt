@@ -6,9 +6,9 @@ run:
 	docker ps
 
 destroy:
-	docker stop tgbot -i
-	docker rmi tgbot -i
-	docker rmi 2573171e0124 -i
+	-docker stop tgbot
+	-docker rmi tgbot
+	-docker rmi 2573171e0124
 	docker ps
 	docker images
 
