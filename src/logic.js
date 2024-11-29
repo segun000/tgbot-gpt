@@ -12,9 +12,10 @@ export async function initCommand(ctx) {
 export async function processTextToChat(ctx, content) {
   try {
     ctx.session.messages.push({ role: openai.roles.USER, content })
+    console.log('Loading message content...',content)
 
     const response = await openai.chat(ctx.session.messages)
-
+    
     ctx.session.messages.push({
       role: openai.roles.ASSISTANT,
       content: response.content,

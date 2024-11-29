@@ -24,9 +24,14 @@ bot.on(message('voice'), async (ctx) => {
   try {
     await ctx.reply(code('Сообщение принял. Жду ответ от сервера...'))
     const link = await ctx.telegram.getFileLink(ctx.message.voice.file_id)
+    console.log('Loading telegram audio path...',link)
     const userId = String(ctx.message.from.id)
+    
     const oggPath = await ogg.create(link.href, userId)
+    console.log('Loading telegram ogg audio path...',oggPath)
+    
     const mp3Path = await ogg.toMp3(oggPath, userId)
+    console.log('Loading telegram mp3 audio path...',mp3Path)
 
     removeFile(oggPath)
 

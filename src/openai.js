@@ -17,7 +17,7 @@ class OpenAIclass {
 
   async chat(messages) {
     try {
-		  console.log('Loading chat...',messages)
+		  console.log('Loading chat...')
 		
       const response = await this.openai.chat.completions.create({
         model: 'gpt-4o',
@@ -31,7 +31,7 @@ class OpenAIclass {
 
   async transcription(filepath) {
     try {
-      console.log('Loading audio path...',filepath)
+      console.log('Loading audio transcription path...',filepath)
 
       const response = await this.openai.audio.transcription.create({
         model: 'whisper-1',
