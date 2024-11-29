@@ -2,7 +2,7 @@ import OpenAI from 'openai'
 import config from 'config'
 import { createReadStream } from 'fs'
 
-class OpenAI {
+class OpenAIclass {
   roles = {
     ASSISTANT: 'assistant',
     USER: 'user',
@@ -10,14 +10,14 @@ class OpenAI {
   }
 
   constructor(apiKey) {
-    const openaiVar = new OpenAI({
+    const openaiVar = new OpenAIclass({
       apiKey,
     })
   }
 
   async chat(messages) {
     try {
-      const response = await this.openaiclass.chat.completion.create({
+      const response = await this.openaiVar.chat.completion.create({
         model: 'gpt-4o',
         messages,
       })
@@ -40,4 +40,4 @@ class OpenAI {
   }
 }
 
-export const openaiVar = new OpenAI(config.get('OPENAI_KEY'))
+export const openaiVar = new OpenAIclass(config.get('OPENAI_KEY'))
