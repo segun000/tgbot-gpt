@@ -10,14 +10,14 @@ class OpenAIClass {
   }
 
   constructor(apiKey) {
-    const openai = new OpenAIClass({
+    const openaiclass = new OpenAIClass({
       apiKey,
     })
   }
 
   async chat(messages) {
     try {
-      const response = await this.openai.chat.completion.create({
+      const response = await this.openaiclass.chat.completion.create({
         model: 'gpt-4o',
         messages,
       })
@@ -29,7 +29,7 @@ class OpenAIClass {
 
   async transcription(filepath) {
     try {
-      const response = await this.openai.audio.transcription.create({
+      const response = await this.openaiclass.audio.transcription.create({
         model: 'whisper-1',
         file: createReadStream(filepath),
     })
@@ -40,4 +40,4 @@ class OpenAIClass {
   }
 }
 
-export const openai = new OpenAIClass(config.get('OPENAI_KEY'))
+export const openaiclass = new OpenAIClass(config.get('OPENAI_KEY'))

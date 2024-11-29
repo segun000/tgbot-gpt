@@ -1,4 +1,4 @@
-import { openai } from './openai.js'
+import { openaiclass } from './openai.js'
 
 export const INITIAL_SESSION = {
   messages: [],
@@ -11,17 +11,16 @@ export async function initCommand(ctx) {
 
 export async function processTextToChat(ctx, content) {
   try {
-    ctx.session.messages.push({ role: openai.roles.USER, content })
+    ctx.session.messages.push({ role: openaiclass.roles.USER, content })
 
-    const response = await openai.chat(ctx.session.messages)
+    const response = await openaiclass.chat(ctx.session.messages)
 
     ctx.session.messages.push({
-      role: openai.roles.ASSISTANT,
+      role: openaiclass.roles.ASSISTANT,
       content: response.content,
     })
 
-    try {await ctx.reply(response.content)
-        } catch {await ctx.reply(response)}
+    await ctx.reply(response.content)
   } catch (e) {
     console.log('Error while proccesing text to gpt', e.message)
   }
