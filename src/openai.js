@@ -9,6 +9,10 @@ class OpenAIclass {
     SYSTEM: 'system',
   }
 
+const openai = new OpenAI({
+  apiKey,
+});
+
 console.log('Loading OPENAI_KEY...',config.get('OPENAI_KEY'))
 
   async chat(messages) {
@@ -36,4 +40,3 @@ console.log('Loading OPENAI_KEY...',config.get('OPENAI_KEY'))
   }
 }
 
-export const openai = new OpenAIclass(config.get('OPENAI_KEY'))
