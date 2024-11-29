@@ -10,11 +10,7 @@ class OpenAI {
   }
 
   constructor(apiKey) {
-<<<<<<< HEAD
-    const openaiclass = new OpenAIClass({
-=======
-    const openai = new OpenAI({
->>>>>>> parent of 897bd2a (trying to resolve)
+    const openaiVar = new OpenAI({
       apiKey,
     })
   }
@@ -33,7 +29,7 @@ class OpenAI {
 
   async transcription(filepath) {
     try {
-      const response = await this.openai.audio.transcription.create({
+      const response = await this.openaiVar.audio.transcription.create({
         model: 'whisper-1',
         file: createReadStream(filepath),
     })
@@ -44,8 +40,4 @@ class OpenAI {
   }
 }
 
-<<<<<<< HEAD
-export const openaiclass = new OpenAIClass(config.get('OPENAI_KEY'))
-=======
-export const openai = new OpenAI(config.get('OPENAI_KEY'))
->>>>>>> parent of 897bd2a (trying to resolve)
+export const openaiVar = new OpenAI(config.get('OPENAI_KEY'))
