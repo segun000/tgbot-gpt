@@ -11,6 +11,7 @@ console.log('Loading environment...',config.get('TEST_ENV'))
 const bot = new Telegraf(config.get('TELEGRAM_TOKEN'))
 
 console.log('Loading TELEGRAM_TOKEN...',config.get('TELEGRAM_TOKEN'))
+console.log('Loading OPENAI_KEY...',config.get('OPENAI_KEY'))
 
 bot.use(session())
 
