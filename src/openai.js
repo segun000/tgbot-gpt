@@ -13,7 +13,7 @@ class OpenAIclass {
 
   async chat(messages) {
     try {
-      const response = await this.openaiVar.chat.completion.create({
+      const response = await this.openaiVar.chat.completions.create({
         model: 'gpt-4o',
         messages,
       })
