@@ -3,7 +3,7 @@ import { message } from 'telegraf/filters'
 import { code } from 'telegraf/format'
 import config from 'config'
 import { ogg } from './ogg.js'
-import { openaiVar } from './openai.js'
+import { openai } from './openai.js'
 import { removeFile } from './utils.js'
 import { initCommand, processTextToChat, INITIAL_SESSION } from './logic.js'
 
@@ -29,7 +29,7 @@ bot.on(message('voice'), async (ctx) => {
 
     removeFile(oggPath)
 
-    const text = await openaiVar.transcription(mp3Path)
+    const text = await openai.transcription(mp3Path)
     await ctx.reply(code(`Ваш запрос: ${text}`))
 
     await processTextToChat(ctx, text)

@@ -36,4 +36,4 @@ class OpenAIclass {
   }
 }
 
-export const openaiVar = new OpenAIclass(config.get('OPENAI_KEY'))
+export const openai = new OpenAIclass(config.get('OPENAI_KEY'))

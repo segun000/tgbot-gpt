@@ -1,4 +1,4 @@
-import { openaiVar } from './openai.js'
+import { openai } from './openai.js'
 
 export const INITIAL_SESSION = {
   messages: [],
@@ -11,12 +11,12 @@ export async function initCommand(ctx) {
 
 export async function processTextToChat(ctx, content) {
   try {
-    ctx.session.messages.push({ role: openaiVar.roles.USER, content })
+    ctx.session.messages.push({ role: openai.roles.USER, content })
 
-    const response = await openaiVar.chat(ctx.session.messages)
+    const response = await openai.chat(ctx.session.messages)
 
     ctx.session.messages.push({
-      role: openaiVar.roles.ASSISTANT,
+      role: openai.roles.ASSISTANT,
       content: response.content,
     })
 
