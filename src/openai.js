@@ -9,11 +9,7 @@ class OpenAIclass {
     SYSTEM: 'system',
   }
 
-  constructor(apiKey) {
-    const openaiVar = new OpenAIclass({
-      apiKey,
-    })
-  }
+
 
   async chat(messages) {
     try {
