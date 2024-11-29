@@ -24,5 +24,6 @@ export async function processTextToChat(ctx, content, username) {
     await ctx.reply(response.content)
   } catch (e) {
     console.log('Error while proccesing text to gpt', e.message)
+    await ctx.reply(e.message)
   }
 }

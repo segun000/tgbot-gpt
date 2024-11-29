@@ -21,6 +21,7 @@ class OpenAIclass {
 		
       const response = await this.openai.chat.completions.create({
         model: 'gpt-4o',
+        max_tokens: 4000,
         messages,
       })
       return response.choices[0].message
