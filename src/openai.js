@@ -9,7 +9,7 @@ class OpenAIclass {
     SYSTEM: 'system',
   }
 
-
+console.log('Loading OPENAI_KEY...',config.get('OPENAI_KEY'))
 
   async chat(messages) {
     try {
