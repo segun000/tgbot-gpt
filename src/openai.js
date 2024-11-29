@@ -2,7 +2,7 @@ import OpenAI from 'openai'
 import config from 'config'
 import { createReadStream } from 'fs'
 
-class OpenAIClass {
+class OpenAI {
   roles = {
     ASSISTANT: 'assistant',
     USER: 'user',
@@ -10,7 +10,11 @@ class OpenAIClass {
   }
 
   constructor(apiKey) {
+<<<<<<< HEAD
     const openaiclass = new OpenAIClass({
+=======
+    const openai = new OpenAI({
+>>>>>>> parent of 897bd2a (trying to resolve)
       apiKey,
     })
   }
@@ -29,7 +33,7 @@ class OpenAIClass {
 
   async transcription(filepath) {
     try {
-      const response = await this.openaiclass.audio.transcription.create({
+      const response = await this.openai.audio.transcription.create({
         model: 'whisper-1',
         file: createReadStream(filepath),
     })
@@ -40,4 +44,8 @@ class OpenAIClass {
   }
 }
 
+<<<<<<< HEAD
 export const openaiclass = new OpenAIClass(config.get('OPENAI_KEY'))
+=======
+export const openai = new OpenAI(config.get('OPENAI_KEY'))
+>>>>>>> parent of 897bd2a (trying to resolve)

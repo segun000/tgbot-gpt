@@ -3,12 +3,14 @@ import { message } from 'telegraf/filters'
 import { code } from 'telegraf/format'
 import config from 'config'
 import { ogg } from './ogg.js'
-import { openaiclass } from './openai.js'
+import { openai } from './openai.js'
 import { removeFile } from './utils.js'
 import { initCommand, processTextToChat, INITIAL_SESSION } from './logic.js'
 
-console.log(config.get('Loading environment...','TEST_ENV'))
+console.log('Loading environment...',config.get('TEST_ENV'))
 const bot = new Telegraf(config.get('TELEGRAM_TOKEN'))
+
+console.log('Loading TELEGRAM_TOKEN...',config.get('TELEGRAM_TOKEN'))
 
 bot.use(session())
 
@@ -27,7 +29,7 @@ bot.on(message('voice'), async (ctx) => {
 
     removeFile(oggPath)
 
-    const text = await openaiclass.transcription(mp3Path)
+    const text = await openai.transcription(mp3Path)
     await ctx.reply(code(`Ваш запрос: ${text}`))
 
     await processTextToChat(ctx, text)
