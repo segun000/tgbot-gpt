@@ -13,7 +13,7 @@ class OpenAIclass {
 
   async chat(messages) {
     try {
-      const response = await this.openaiVar.chat.completions.create({
+      const response = await this.openai.chat.completions.create({
         model: 'gpt-4o',
         messages,
       })
@@ -25,7 +25,7 @@ class OpenAIclass {
 
   async transcription(filepath) {
     try {
-      const response = await this.openaiVar.audio.transcription.create({
+      const response = await this.openai.audio.transcription.create({
         model: 'whisper-1',
         file: createReadStream(filepath),
     })
