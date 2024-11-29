@@ -9,16 +9,16 @@ class OpenAIclass {
     SYSTEM: 'system',
   }
 
-constructor(apiKey) {
-	this.openai = new OpenAI({
-		apiKey,
-	})
-}
-
-console.log('Loading OPENAI_KEY...',config.get('OPENAI_KEY'))
+  constructor(apiKey) {
+	  this.openai = new OpenAI({
+	  	apiKey,
+	  })
+  }
 
   async chat(messages) {
     try {
+		console.log('Loading OPENAI_KEY...',config.get('OPENAI_KEY'))
+		
       const response = await this.openai.chat.completions.create({
         model: 'gpt-4o',
         messages,
