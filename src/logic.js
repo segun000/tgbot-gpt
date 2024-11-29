@@ -9,10 +9,10 @@ export async function initCommand(ctx) {
   await ctx.reply('Жду вашего голосового или текстового сообщения')
 }
 
-export async function processTextToChat(ctx, content) {
+export async function processTextToChat(ctx, content, username) {
   try {
     ctx.session.messages.push({ role: openai.roles.USER, content })
-    console.log('Loading message content...',content)
+    console.log('Loading message content from ',username,' and content...',content)
 
     const response = await openai.chat(ctx.session.messages)
     

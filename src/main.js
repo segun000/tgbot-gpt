@@ -21,6 +21,7 @@ bot.command('start', initCommand)
 
 bot.on(message('voice'), async (ctx) => {
   ctx.session ??= INITIAL_SESSION
+  const username = ctx.from.username
   try {
     await ctx.reply(code('Сообщение принял. Жду ответ от сервера...'))
     const link = await ctx.telegram.getFileLink(ctx.message.voice.file_id)
@@ -33,7 +34,7 @@ bot.on(message('voice'), async (ctx) => {
     const text = await openai.transcription(mp3Path)
     await ctx.reply(code(`Ваш запрос: ${text}`))
 
-    await processTextToChat(ctx, text)
+    await processTextToChat(ctx, text, username)
   } catch (e) {
     console.log(`Error while voice message`, e.message)
   }
@@ -41,9 +42,10 @@ bot.on(message('voice'), async (ctx) => {
 
 bot.on(message('text'), async (ctx) => {
   ctx.session ??= INITIAL_SESSION
+  const username = ctx.from.username
   try {
     await ctx.reply(code('Сообщение принял. Жду ответ от сервера...'))
-    await processTextToChat(ctx, ctx.message.text)
+    await processTextToChat(ctx, ctx.message.text, username)
   } catch (e) {
     console.log(`Error while voice message`, e.message)
   }
