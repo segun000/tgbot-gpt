@@ -31,12 +31,11 @@ class OpenAIclass {
 
   async transcription(filepath) {
     try {
-      console.log('Loading audio transcription path...',filepath)
-
-      const response = await this.openai.audio.transcription.create({
+      const response = await this.openai.audio.transcriptions.create({
         model: 'whisper-1',
         file: createReadStream(filepath),
     })
+    console.log('Loading audio message...',response.data.text)
       return response.data.text
     } catch (e) {
       console.log('Error while transcription', e.message)
